@@ -1,0 +1,28 @@
+{
+    "name": "adrianvm/export-model-constants",
+    "description": "Export Laravel model constants to JavaScript/TypeScript for seamless backend-frontend sharing.",
+    "version": "1.0.0",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Adrianvm\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "adrianvm"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "adrianvm\\ExportModelConstants\\Providers\\AppServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "php": "^8.1",
+        "laravel/framework": "^10.48"
+    }
+}
