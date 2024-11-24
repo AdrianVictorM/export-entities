@@ -1,11 +1,11 @@
 <?php
 
-namespace adrianvm\ExportModelConstants\Providers;
+namespace Adrianvm\ExportModelConstants;
 
 use Illuminate\Support\ServiceProvider;
-use adrianvm\ExportModelConstants\Console\Commands\ExportModelConstantsCommand;
+use Adrianvm\ExportModelConstants\Console\Commands\ExportModelConstantsCommand;
 
-class AppServiceProvider extends ServiceProvider
+class ExportModelConstantsServiceProvider extends ServiceProvider
 {
     public function register()
     {

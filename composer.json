@@ -6,18 +6,18 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Adrianvm\\": "src/"
+            "Adrianvm\\ExportModelConstants\\": "src/"
         }
     },
     "authors": [
         {
-            "name": "adrianvm"
+            "name": "Adrian Mosoiu"
         }
     ],
     "extra": {
         "laravel": {
             "providers": [
-                "adrianvm\\ExportModelConstants\\Providers\\AppServiceProvider"
+                "Adrianvm\\ExportModelConstants\\ExportModelConstantsServiceProvider"
             ]
         }
     },

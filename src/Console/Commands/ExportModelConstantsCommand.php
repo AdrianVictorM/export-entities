@@ -1,6 +1,6 @@
 <?php
 
-namespace adrianvm\ExportModelConstants\Console\Commands;
+namespace Adrianvm\ExportModelConstants\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
