@@ -1,12 +1,12 @@
 <?php
 
-namespace Adrianvm\ExportModelConstants\Console\Commands;
+namespace Adrianvm\ExportEntities\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use ReflectionClass;
 
-class ExportModelConstantsCommand extends Command
+class ExportConstantsCommand extends Command
 {
     /**
      * The name and signature of the console command.
@@ -14,8 +14,9 @@ class ExportModelConstantsCommand extends Command
      * @var string
      */
     protected $signature = 'export:constants
-                            {output=resources/js/constants.js : The output file path for JavaScript constants}
-                            {--suffix=Model : The suffix to append to each model name}
+                            {--path=Models : The path to the models directory (default: Models)}
+                            {output=resources/js/constants.js : The output file path for JavaScript constants (default: resources/js/constants.js)}
+                            {--suffix= : The suffix to append to each model name}
                             {--typescript : Generate a TypeScript definition file in addition to the JS file}';
 
     /**
@@ -32,9 +33,10 @@ class ExportModelConstantsCommand extends Command
      */
     public function handle()
     {
-        $modelsPath = app_path('Models');
+        // made another command for PHP ENUMS
+        $modelsPath = app_path($this->option('path') ?: 'Models');
         $outputPath = base_path($this->argument('output'));
-        $suffix = $this->option('suffix') ?: 'Model';
+        $suffix = $this->option('suffix') ?: '';
         $generateTypescript = $this->option('typescript');
 
         if (!is_dir($modelsPath)) {
@@ -82,6 +84,8 @@ class ExportModelConstantsCommand extends Command
             if ($className && class_exists($className)) {
                 $reflection = new ReflectionClass($className);
                 $classConstants = $reflection->getConstants();
+
+                $this->filterConstants($classConstants);
 
                 if (!empty($classConstants)) {
                     $modelName = $reflection->getShortName() . $suffix;
@@ -191,5 +195,16 @@ class ExportModelConstantsCommand extends Command
         }
 
         return $tsContent;
+    }
+
+    /**
+     * Filter out unwanted constants.
+     *
+     * @param array $constants
+     */
+    protected function filterConstants(array &$constants): void
+    {
+        unset($constants['CREATED_AT']);
+        unset($constants['UPDATED_AT']);
     }
 }
