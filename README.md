@@ -23,7 +23,7 @@ This package adds two new commands:
 php artisan export:constants
 ```
 
-### 1.1 Options
+### 1.1. Options
 
 - `--suffix`: Append a custom suffix (optional, no default).
 - `--path`: Models folder path (default: `Models`)
@@ -67,14 +67,14 @@ export const Post = {
 php artisan export:enums
 ```
 
-### 2.1 Options
+### 2.1. Options
 
 - `--suffix`: Append a custom suffix (optional, no default).
 - `--path`: Enums folder path (default: `Enums`)
 - `output`: The output file path for JavaScript constants (default: `resources/js/enums.js`)
 - `--typescript`: Generate TypeScript definitions.
 
-### 2.2.1 Input Example (no type)
+### 2.2.1. Input Example (no type)
 
 ```php
 ...
@@ -87,7 +87,7 @@ enum BurgerCookingStages
 }
 ```
 
-### 2.2.1 Output Example (no type)
+### 2.2.1. Output Example (no type)
 
 ```javascript
 export const Post = {
@@ -100,7 +100,7 @@ export const Post = {
 
 ##
 
-### 2.2.2 Input Example (string type)
+### 2.2.2. Input Example (string type)
 
 ```php
 ...
@@ -113,7 +113,7 @@ enum Status: string
 }
 ```
 
-### 2.2.2 Output Example (string type)
+### 2.2.2. Output Example (string type)
 
 ```javascript
 export const Status = {
@@ -126,7 +126,7 @@ export const Status = {
 
 ##
 
-### 2.2.3 Input Example (int type)
+### 2.2.3. Input Example (int type)
 
 ```php
 ...
@@ -138,7 +138,7 @@ enum Status: int
 }
 ```
 
-### 2.2.3 Output Example (int type)
+### 2.2.3. Output Example (int type)
 
 ```javascript
 export const Status = {
