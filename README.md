@@ -5,7 +5,7 @@ Export PHP constants and/or PHP enums to JavaScript/TypeScript for seamless back
 ## Requirements
 
 - PHP 8.0 or above (8.1 or above for Enums command to work)
-- Laravel 10 or above
+- Laravel 9 or above
 
 ## Installation
 
